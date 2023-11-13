@@ -41,7 +41,20 @@ public class Main {
                     }
                     break;
                 case 2:
-                 
+                	 String emailBusca = JOptionPane.showInputDialog("Digite o e-mail a ser buscado:");
+                	 List<Usuario> listaUsuarios = dao.listarUsuarios();
+                     boolean encontrado = false;
+                     for (Usuario usuario3 : listaUsuarios) {
+                         if (usuario3.getEmail().equals(emailBusca)) {
+                             JOptionPane.showMessageDialog(null, "Usuário encontrado:\n" + usuario3.toString());
+                             encontrado = true;
+                             break;
+                         }
+                     }
+
+                     if (!encontrado) {
+                         JOptionPane.showMessageDialog(null, "Usuário não encontrado com o e-mail informado.");
+                     }
                     break;
                 case 3:
                     JOptionPane.showMessageDialog(null, "Saindo do programa.");
